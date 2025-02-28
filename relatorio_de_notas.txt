@@ -1,0 +1,21 @@
+Aluno: samara
+Média de Matemática: 6.00
+Média de Português: 6.50
+Média de Ciências: 8.50
+Média de História: 6.25
+Média de Geografia: 6.75
+--------------------------------------------------
+Aluno: fim encerrar
+Média de Matemática: 8.50
+Média de Português: 7.00
+Média de Ciências: 6.50
+Média de História: 8.25
+Média de Geografia: 7.00
+--------------------------------------------------
+Aluno: fim 
+Média de Matemática: 8.50
+Média de Português: 7.25
+Média de Ciências: 7.50
+Média de História: 6.25
+Média de Geografia: 9.75
+--------------------------------------------------
