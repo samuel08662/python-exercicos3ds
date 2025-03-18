@@ -1,153 +1,222 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hora de Aventura</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #000000;
-                color: #ffffff;
-                margin: 0;
-                padding: 0;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de Aventura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("e314cc4210c3a0f6f10260a673584642103532aav2_00.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            padding-top: 60px; /* Para não cobrir o conteúdo com o menu fixo */
+        }
 
-            header {
-                background-color: #222222;
-                padding: 20px;
-                text-align: center;
-            }
+        header {
+            background-color: rgba(34, 34, 34, 0.7); /* Fundo semi-transparente */
+            padding: 20px;
+            text-align: center;
+        }
 
-            h1 {
-                color: #ff6347;
-            }
+        h1 {
+            color: #ff6347;
+            font-size: 2.5rem;
+        }
 
-            h2, h3 {
-                color: #4682b4;
-            }
+        h2, h3 {
+            color: #4682b4;
+        }
 
-            p {
-                font-size: 18px;
-                line-height: 1.6;
-                text-align: justify;
-            }
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+            margin: 10px 0;
+        }
 
-            img {
-                border-radius: 10px;
-                margin-top: 20px;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
+        img {
+            border-radius: 10px;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;  /* Largura maior */
+            max-width: 800px; /* Limita a largura máxima */
+            height: auto; /* Mantém a proporção */
+        }
 
-            a {
-                color: #ff4500;
-                text-decoration: none;
-                font-weight: bold;
-            }
+        a {
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-            a:hover {
-                color: #ff6347;
-            }
+        a:hover {
+            color: #ff6347;
+        }
 
-            section {
-                margin: 40px;
-            }
+        section {
+            margin: 60px 40px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0); /* Fundo com transparência */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra para destacar a seção */
+        }
 
-            ul {
-                list-style-type: square;
-                margin-left: 40px;
-            }
+        ul {
+            list-style-type: square;
+            margin-left: 40px;
+        }
 
-            footer {
-                background-color: #222222;
-                text-align: center;
-                padding: 20px;
-                color: #ffffff;
-            }
+        footer {
+            background-color: #22222200;
+            text-align: center;
+            padding: 20px;
+            color: #ffffff;
+        }
 
-            footer p {
-                font-size: 14px;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>Hora de Aventura</h1>
-            <p>Bem-vindo ao mundo maluco de Finn e Jake!</p>
-        </header>
+        footer p {
+            font-size: 0.875rem;
+        }
 
-        <section>
-            <h2>Sobre a série</h2>
-            <p>"Hora de Aventura" é uma série de animação que segue as aventuras de Finn, o humano, e Jake, o cão, enquanto eles exploram a Terra de Ooo e enfrentam vilões, desafios e muitos personagens excêntricos.</p>
+        nav {
+            background-color: #33333300;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-            <h3>Personagens principais:</h3>
-            <ul>
-                <li>Finn - O último humano vivo, corajoso e sempre pronto para a aventura.</li>
-                <li>Jake - O cão mágico com o poder de esticar e mudar sua forma.</li>
-                <li>Princesa Jujuba - A princesa do Reino Doce, inteligente e estrategista.</li>
-                <li>Marceline - A vampira e música, que adora rock e tem uma personalidade irreverente.</li>
-                <li>Bmo - Um robô que é um jogo e amigo do Finn e do Jake.</li>
-            </ul>
-        </section>
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
 
-        <section>
-            <h2>Imagens do show</h2>
-            <img src="Hora-da-Aventura-Adventure-Time.webp" alt="Finn e Jake" width="700" height="500">
-            <p>Finn e Jake em uma das suas aventuras.</p>
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
 
-            <img src="finnejack.webp" alt="Finn e Jake em uma aventura" width="700" height="500">
-            <p>Uma cena épica de Finn e Jake.</p>
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 8px 12px;
+            display: inline-block;
+        }
 
-            <img src="marcelioneeguitarra.jpg" alt="Marceline" width="700" height="500">
-            <p>Marceline, a vampira, com sua guitarra.</p>
+        nav ul li a:hover {
+            color: #ff6347;
+            background-color: #444444; /* Fundo para destacar o item ao passar o mouse */
+            border-radius: 5px;
+        }
 
-            <!-- Novas Imagens -->
-            <img src="fnjmo.jpeg" alt="Finn, Jake, Marceline, Princesa Jujuba e Bmo" width="700" height="500">
-            <p>Finn e Jake com Marceline, Princesa Jujuba e Bmo.</p>
+        /* Separação clara entre seções */
+        section h2 {
+            border-bottom: 2px solid #ff6347; /* Linha separadora */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
 
-            <img src="HoradeAventura.webp" alt="Finn e Jake descansando" width="700" height="500">
-            <p>Finn e Jake descansando.</p>
+    </style>
+</head>
+<body>
 
-            <img src="finneseusamigos.jpg" alt="Amigos de Finn" width="700" height="500">
-            <p>Finn e seus amigos.</p>
+    <header>
+        <h1>Hora de Aventura</h1>
+        <p>Bem-vindo ao mundo maluco de Finn e Jake!</p>
+    </header>
 
-            <img src="hora_aventura_mundoanimado.jpg" alt="Finn em nova aventura" width="700" height="500">
-            <p>Finn se preparando para uma nova aventura.</p>
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre a Série</a></li>
+            <li><a href="#imagens">Imagens</a></li>
+            <li><a href="#informacoes">Informações</a></li>
+            <li><a href="#links">Links Úteis</a></li>
+        </ul>
+    </nav>
 
-            <img src="terrasdeoo.jpg" alt="Aventura na Terra de Ooo" width="700" height="500">
-            <p>Uma cena da Terra de Ooo, o cenário das aventuras.</p>
+   
+    <section id="sobre">
+        <h2>Sobre a Série</h2>
+        <p>"Hora de Aventura" é uma série de animação que segue as aventuras de Finn, o humano, e Jake, o cão, enquanto eles exploram a Terra de Ooo e enfrentam vilões, desafios e muitos personagens excêntricos.</p>
 
-            <img src="contraovilao.jpg" alt="Duelo com o vilão" width="700" height="500">
-            <p>Finn e Jake enfrentando um vilão poderoso.</p>
+        <h3>Personagens Principais:</h3>
+        <ul>
+            <li>Finn - O último humano vivo, corajoso e sempre pronto para a aventura.</li>
+            <li>Jake - O cão mágico com o poder de esticar e mudar sua forma.</li>
+            <li>Princesa Jujuba - A princesa do Reino Doce, inteligente e estrategista.</li>
+            <li>Marceline - A vampira e música, que adora rock e tem uma personalidade irreverente.</li>
+            <li>BMO - Um robô que é um jogo e amigo do Finn e do Jake.</li>
+        </ul>
+    </section>
 
-            <img src="marcelinegg.webp" alt="Marceline cantando" width="700" height="500">
-            <p>Marceline, a vampira, cantando suas músicas de rock.</p>
-        </section>
+    <section id="imagens">
+        <h2>Imagens do Show</h2>
+        <img src="Hora-da-Aventura-Adventure-Time.webp" alt="Finn e Jake" title="Finn e Jake em uma das suas aventuras">
+        <p>Finn e Jake em uma das suas aventuras.</p>
 
-        <section>
-            <h2>Informações sobre a série</h2>
-            <p><strong>1. Gênero da série:</strong> "Hora de Aventura" é uma série de animação de comédia e fantasia.</p>
-            <p><strong>2. Criadores:</strong> A série foi criada por Pendleton Ward, ex-animador da Cartoon Network.</p>
-            <p><strong>3. Estreia:</strong> A série estreou em 2010 no canal Cartoon Network.</p>
-            <p><strong>4. O Mundo de Ooo:</strong> A Terra de Ooo é um lugar pós-apocalíptico, onde os personagens vivem e se aventuram.</p>
-            <p><strong>5. Tema central:</strong> A série explora a amizade, aventura, e o crescimento pessoal de Finn e Jake.</p>
-            <p><strong>6. A série tem uma forte influência do surrealismo:</strong> A série combina elementos de fantasia com um humor peculiar e surreal, criando um universo único.</p>
-            <p><strong>7. A evolução de Finn:</strong> Ao longo da série, Finn cresce de um adolescente impulsivo para um herói mais reflexivo e maduro.</p>
-            <p><strong>8. A música:</strong> Marceline, uma das personagens principais, é uma famosa cantora de rock, e suas canções são um dos destaques da série.</p>
-            <p><strong>9. Relação de Finn e Jake:</strong> A amizade entre Finn e Jake é central para a série, sendo um reflexo da importância da camaradagem.</p>
-            <p><strong>10. Influência cultural:</strong> "Hora de Aventura" teve um grande impacto cultural, sendo aclamada por sua criatividade, personagens profundos e abordagens inesperadas de temas como a vida e a morte.</p>
-        </section>
+        <img src="finnejack.webp" alt="Finn e Jake em uma aventura" title="Uma cena épica de Finn e Jake">
+        <p>Uma cena épica de Finn e Jake.</p>
 
-        <section>
-            <h2>Links úteis</h2>
-            <p>Para mais informações sobre a série, visite o site oficial da Cartoon Network:</p>
-            <a href="https://www.cartoonnetwork.com/shows/adventure-time">Visite o site oficial</a>
-        </section>
+        <img src="marcelioneeguitarra.jpg" alt="Marceline com guitarra" title="Marceline, a vampira, com sua guitarra">
+        <p>Marceline, a vampira, com sua guitarra.</p>
 
-        <footer>
-            <p>© 2025 Hora de Aventura - Todos os direitos reservados.</p>
-        </footer>
-    </body>
+        <img src="fnjmo.jpeg" alt="Finn, Jake, Marceline, Princesa Jujuba e BMO" title="Finn e Jake com Marceline, Princesa Jujuba e BMO">
+        <p>Finn e Jake com Marceline, Princesa Jujuba e BMO.</p>
+
+        <img src="HoradeAventura.webp" alt="Finn e Jake descansando" title="Finn e Jake descansando">
+        <p>Finn e Jake descansando.</p>
+
+        <img src="finneseusamigos.jpg" alt="Amigos de Finn" title="Finn e seus amigos">
+        <p>Finn e seus amigos.</p>
+
+        <img src="hora_aventura_mundoanimado.jpg" alt="Finn em nova aventura" title="Finn se preparando para uma nova aventura">
+        <p>Finn se preparando para uma nova aventura.</p>
+
+        <img src="terrasdeoo.jpg" alt="Cena na Terra de Ooo" title="Aventura na Terra de Ooo">
+        <p>Uma cena da Terra de Ooo, o cenário das aventuras.</p>
+
+        <img src="finnejackvslich.webp" alt="Duelo com o vilão" title="Finn e Jake enfrentando um vilão poderoso">
+        <p>Finn e Jake enfrentando um vilão poderoso.</p>
+
+        <img src="marcelinegg.webp" alt="Marceline cantando" title="Marceline cantando suas músicas de rock">
+        <p>Marceline, a vampira, cantando suas músicas de rock.</p>
+    </section>
+
+    <!-- Seção de Informações -->
+    <section id="informacoes">
+        <h2>Informações sobre a Série</h2>
+        <p><strong>1. Gênero da série:</strong> "Hora de Aventura" é uma série de animação de comédia e fantasia.</p>
+        <p><strong>2. Criadores:</strong> A série foi criada por Pendleton Ward, ex-animador da Cartoon Network.</p>
+        <p><strong>3. Estreia:</strong> A série estreou em 2010 no canal Cartoon Network.</p>
+        <p><strong>4. O Mundo de Ooo:</strong> A Terra de Ooo é um lugar pós-apocalíptico, onde os personagens vivem e se aventuram.</p>
+        <p><strong>5. Tema central:</strong> A série explora a amizade, aventura, e o crescimento pessoal de Finn e Jake.</p>
+        <p><strong>6. A série tem uma forte influência do surrealismo:</strong> A série combina elementos de fantasia com um humor peculiar e surreal, criando um universo único.</p>
+        <p><strong>7. A evolução de Finn:</strong> Ao longo da série, Finn cresce de um adolescente impulsivo para um herói mais reflexivo e maduro.</p>
+        <p><strong>8. A música:</strong> Marceline, uma das personagens principais, é uma famosa cantora de rock, e suas canções são um dos destaques da série.</p>
+        <p><strong>9. Relação de Finn e Jake:</strong> A amizade entre Finn e Jake é central para a série, sendo um reflexo da importância da camaradagem.</p>
+        <p><strong>10. Influência cultural:</strong> "Hora de Aventura" teve um grande impacto cultural, sendo aclamada por sua criatividade, personagens profundos e abordagens inesperadas de temas como a vida e a morte.</p>
+    </section>
+
+    <!-- Seção de Links -->
+    <section id="links">
+        <h2>Links Úteis</h2>
+        <p>Para mais informações sobre a série, visite o site oficial da Cartoon Network:</p>
+        <a href="https://www.cartoonnetwork.com/shows/adventure-time" target="_blank" rel="noopener noreferrer">Visite o site oficial</a>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2025 Hora de Aventura - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
 </html>
+
