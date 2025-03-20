@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+</head>
+<body>
+    <h1>Cadastro de Alunos e Notas</h1>
+    <form action="/" method="post">
+        <label for="num_alunos">Número de Alunos:</label>
+        <input type="number" id="num_alunos" name="num_alunos" required><br><br>
+
+        <div id="alunos">
+        </div>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        const numAlunosInput = document.getElementById("num_alunos");
+        const alunosDiv = document.getElementById("alunos");
+
+        numAlunosInput.addEventListener("input", function() {
+            alunosDiv.innerHTML = "";
+            const numAlunos = parseInt(numAlunosInput.value);
+            for (let i = 0; i < numAlunos; i++) {
+                const alunoDiv = document.createElement("div");
+                alunoDiv.innerHTML = `
+                    <h3>Aluno ${i+1}</h3>
+                    <label for="nome_${i+1}">Nome:</label>
+                    <input type="text" id="nome_${i+1}" name="nome_${i+1}" required><br><br>
+                    <label for="num_materias_${i+1}">Número de matérias:</label>
+                    <input type="number" id="num_materias_${i+1}" name="num_materias_${i+1}" required><br><br>
+
+                    <div id="materias_${i+1}"></div>
+                `;
+                alunosDiv.appendChild(alunoDiv);
+
+                const numMateriasInput = alunoDiv.querySelector(`#num_materias_${i+1}`);
+                const materiasDiv = alunoDiv.querySelector(`#materias_${i+1}`);
+
+                numMateriasInput.addEventListener("input", function() {
+                    materiasDiv.innerHTML = "";
+                    const numMaterias = parseInt(numMateriasInput.value);
+                    for (let j = 0; j < numMaterias; j++) {
+                        const materiaDiv = document.createElement("div");
+                        materiaDiv.innerHTML = `
+                            <h4>Matéria ${j+1}</h4>
+                            <label for="nota_${i+1}_${j+1}_1">Nota 1º Bimestre:</label>
+                            <input type="number" id="nota_${i+1}_${j+1}_1" name="nota_${i+1}_${j+1}_1" required><br><br>
+                            <label for="nota_${i+1}_${j+1}_2">Nota 2º Bimestre:</label>
+                            <input type="number" id="nota_${i+1}_${j+1}_2" name="nota_${i+1}_${j+1}_2" required><br><br>
+                            <label for="nota_${i+1}_${j+1}_3">Nota 3º Bimestre:</label>
+                            <input type="number" id="nota_${i+1}_${j+1}_3" name="nota_${i+1}_${j+1}_3" required><br><br>
+                            <label for="nota_${i+1}_${j+1}_4">Nota 4º Bimestre:</label>
+                            <input type="number" id="nota_${i+1}_${j+1}_4" name="nota_${i+1}_${j+1}_4" required><br><br>
+                        `;
+                        materiasDiv.appendChild(materiaDiv);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
