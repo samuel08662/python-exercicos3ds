@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de RPG</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .campanha {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .campanha:hover {
+            background-color: #0056b3;
+        }
+
+        .campanha-conteudo {
+            display: none;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .campanha-conteudo p {
+            color: #333;
+        }
+
+        .rolagem-dados {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Formulário de adicionar campanha */
+        .form-adicionar-campanha {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            width: 300px;
+            display: none;
+        }
+
+        .form-adicionar-campanha input,
+        .form-adicionar-campanha textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-adicionar-campanha button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-adicionar-campanha button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Sistema de RPG</h1>
+    
+    <!-- Botões de Campanha -->
+    <div class="campanha" onclick="abrirCampanha('campanha1')">
+        <a href="campanha1.html">Campanha 1: o demonio vermelho</a>
+    </div>
+    <div class="campanha" onclick="abrirCampanha('campanha2')">
+        <a href="campanha2.html">Campanha 2: A Cidade Perdida</a>
+    </div>
+    <div class="campanha" onclick="abrirCampanha('campanha3')">
+        <a href="campanha3.html">Campanha 3: A Guerra dos Reinos</a>
+    </div>
+    
+    <!-- Conteúdo da Campanha -->
+    <div id="campanha1" class="campanha-conteudo">
+        <h3>o demonio vermelho </h3>
+        <p>Você e seus amigos partem em uma jornada para derrotar um demonio que ameaça a terra.</p>
+        <p>Seu desafio será enfrentar forças sobrenaturais e descobrir os segredos por trás deste poder maligno.</p>
+    </div>
+    <div id="campanha2" class="campanha-conteudo">
+        <h3>A Cidade Perdida</h3>
+        <p>Em uma busca por uma cidade perdida, segredos antigos são revelados.</p>
+        <p>Com cada passo, você se aproxima do mistério, mas também atrai perigos desconhecidos.</p>
+    </div>
+    <div id="campanha3" class="campanha-conteudo">
+        <h3>A Guerra dos Reinos</h3>
+        <p>Reinos estão em guerra, e você deve escolher um lado para lutar pela vitória.</p>
+        <p>Envolva-se em batalhas épicas e tome decisões que afetarão o destino de todos.</p>
+    </div>
+
+    <!-- Sistema de Dados -->
+    <div class="rolagem-dados">
+        <button onclick="rolarDado()">Rolar Dado</button>
+        <p id="resultado"></p>
+    </div>
+
+    <!-- Botão Adicionar Campanha -->
+    <button onclick="mostrarFormulario()">Adicionar Nova Campanha</button>
+
+    <!-- Formulário para adicionar campanha -->
+    <div class="form-adicionar-campanha" id="form-adicionar-campanha">
+        <h3>Adicionar Nova Campanha</h3>
+        <input type="text" id="tituloCampanha" placeholder="Título da Campanha">
+        <textarea id="descricaoCampanha" placeholder="Descrição da Campanha" rows="4"></textarea>
+        <button onclick="adicionarCampanha()">Adicionar</button>
+    </div>
+</div>
+
+<script>
+    function abrirCampanha(campanhaId) {
+        // Esconde todos os conteúdos de campanha
+        const campanhas = document.querySelectorAll('.campanha-conteudo');
+        campanhas.forEach(campanha => {
+            campanha.style.display = 'none';
+        });
+
+        // Exibe a campanha selecionada
+        const campanhaSelecionada = document.getElementById(campanhaId);
+        campanhaSelecionada.style.display = 'block';
+    }
+
+    function rolarDado() {
+        // Gera um número aleatório entre 1 e 20 (como num dado de RPG)
+        const resultado = Math.floor(Math.random() * 20) + 1;
+        document.getElementById('resultado').innerText = `Você rolou: ${resultado}`;
+    }
+
+    function mostrarFormulario() {
+        // Exibe o formulário de adicionar campanha
+        const form = document.getElementById('form-adicionar-campanha');
+        form.style.display = 'block';
+    }
+
+    function adicionarCampanha() {
+        // Captura os valores do formulário
+        const titulo = document.getElementById('tituloCampanha').value;
+        const descricao = document.getElementById('descricaoCampanha').value;
+
+        if (titulo && descricao) {
+            // Cria o elemento de nova campanha
+            const novaCampanha = document.createElement('div');
+            novaCampanha.classList.add('campanha');
+            novaCampanha.innerHTML = `<a href="#">${titulo}</a>`;
+
+            // Cria o conteúdo da campanha
+            const conteudoCampanha = document.createElement('div');
+            conteudoCampanha.classList.add('campanha-conteudo');
+            conteudoCampanha.innerHTML = `
+                <h3>${titulo}</h3>
+                <p>${descricao}</p>
+            `;
+            
+            // Adiciona a nova campanha e o conteúdo à página
+            document.querySelector('.container').appendChild(novaCampanha);
+            document.querySelector('.container').appendChild(conteudoCampanha);
+
+            // Oculta o formulário e limpa os campos
+            document.getElementById('form-adicionar-campanha').style.display = 'none';
+            document.getElementById('tituloCampanha').value = '';
+            document.getElementById('descricaoCampanha').value = '';
+        } else {
+            alert("Por favor, preencha todos os campos!");
+        }
+    }
+</script>
+
+</body>
+</html>
